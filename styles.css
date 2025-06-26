@@ -18,6 +18,14 @@
   padding: 16px 24px;
 }
 
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .nav-brand {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 24px;
@@ -91,14 +99,34 @@
 
 /* Мобільна адаптивність */
 @media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-  
   .nav-container {
     padding: 12px 20px;
+    position: relative;
   }
-  
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
   .cta-button {
     padding: 10px 20px;
     font-size: 14px;
@@ -541,21 +569,21 @@
   color: white;
 }
 
-.cta-title {
+.services-cta .cta-title {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin: 0 0 8px 0;
 }
 
-.cta-description {
+.services-cta .cta-description {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-.cta-button {
+.services-cta .cta-button {
   background: #FF0050;
   color: white;
   border: none;
@@ -569,7 +597,7 @@
   white-space: nowrap;
 }
 
-.cta-button:hover {
+.services-cta .cta-button:hover {
   background: #e6004a;
   transform: translateY(-2px);
 }
@@ -596,7 +624,7 @@
     padding: 32px 24px;
   }
   
-  .cta-button {
+  .services-cta .cta-button {
     width: 100%;
   }
 }
@@ -831,21 +859,21 @@
   color: white;
 }
 
-.cta-title {
+.portfolio-cta .cta-title {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 28px;
   font-weight: 700;
   margin: 0 0 16px 0;
 }
 
-.cta-description {
+.portfolio-cta .cta-description {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.8);
   margin: 0 0 32px 0;
 }
 
-.cta-button {
+.portfolio-cta .cta-button {
   background: #FF0050;
   color: white;
   border: none;
@@ -858,7 +886,7 @@
   font-family: 'Inter', -apple-system, sans-serif;
 }
 
-.cta-button:hover {
+.portfolio-cta .cta-button:hover {
   background: #e6004a;
   transform: translateY(-2px);
 }
@@ -2074,7 +2102,7 @@ input:checked + .slider:before {
   align-items: center;
 }
 
-.cta-title {
+.faq-cta .cta-title {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -2082,19 +2110,19 @@ input:checked + .slider:before {
   margin: 0 0 8px 0;
 }
 
-.cta-description {
+.faq-cta .cta-description {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 16px;
   color: #6B7280;
   margin: 0;
 }
 
-.cta-actions {
+.faq-cta .cta-actions {
   display: flex;
   gap: 16px;
 }
 
-.cta-button {
+.faq-cta .cta-button {
   padding: 16px 24px;
   border-radius: 8px;
   font-size: 16px;
@@ -2106,23 +2134,23 @@ input:checked + .slider:before {
   white-space: nowrap;
 }
 
-.cta-button.primary {
+.faq-cta .cta-button.primary {
   background: #FF0050;
   color: white;
 }
 
-.cta-button.primary:hover {
+.faq-cta .cta-button.primary:hover {
   background: #e6004a;
   transform: translateY(-2px);
 }
 
-.cta-button.secondary {
+.faq-cta .cta-button.secondary {
   background: transparent;
   color: #374151;
   border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-.cta-button.secondary:hover {
+.faq-cta .cta-button.secondary:hover {
   border-color: #FF0050;
   color: #FF0050;
 }
@@ -2165,12 +2193,12 @@ input:checked + .slider:before {
     padding: 32px 24px;
   }
   
-  .cta-actions {
+  .faq-cta .cta-actions {
     flex-direction: column;
     width: 100%;
   }
   
-  .cta-button {
+  .faq-cta .cta-button {
     width: 100%;
   }
 }
@@ -2531,21 +2559,21 @@ input:checked + .slider:before {
   color: white;
 }
 
-.cta-title {
+.contact-cta .cta-title {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin: 0 0 8px 0;
 }
 
-.cta-description {
+.contact-cta .cta-description {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-.cta-telegram {
+.contact-cta .cta-telegram {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2561,7 +2589,7 @@ input:checked + .slider:before {
   white-space: nowrap;
 }
 
-.cta-telegram:hover {
+.contact-cta .cta-telegram:hover {
   background: #007bb5;
   transform: translateY(-2px);
 }
@@ -2605,7 +2633,7 @@ input:checked + .slider:before {
     padding: 32px 24px;
   }
   
-  .cta-telegram {
+  .contact-cta .cta-telegram {
     width: 100%;
     justify-content: center;
   }
